@@ -25,7 +25,7 @@ public class ControllerTest {
 	private MockMvc mvc;
 	
 	@Test
-	public void test() throws Exception{
+	public void root() throws Exception{
 		final ResultActions actions = mvc.perform(get("/")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andDo(print());
@@ -33,5 +33,16 @@ public class ControllerTest {
 		actions
 		.andExpect(status().isOk())
 		.andExpect(content().string("This is Maven Jenkins Web Test"));
+	}
+	
+	@Test
+	public void hello() throws Exception{
+		final ResultActions actions = mvc.perform(get("/hello")
+				.contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andDo(print());
+		
+		actions
+		.andExpect(status().isOk())
+		.andExpect(content().string("Hello"));
 	}
 }

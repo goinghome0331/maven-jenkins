@@ -10,4 +10,8 @@ public class BasicController {
 	public String root() {
 		return "This is Maven Jenkins Web Test";
 	}
+	@GetMapping("/hello")
+	public String hello() {
+		return "Hello";
+	}
 }
