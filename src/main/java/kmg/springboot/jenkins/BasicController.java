@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestController {
+public class BasicController {
 	
-	@GetMapping("/hello")
-	public String test() {
-		return "Hello SpringBoot";
+	@GetMapping("/")
+	public String root() {
+		return "This is Maven Jenkins Web Test";
 	}
 }

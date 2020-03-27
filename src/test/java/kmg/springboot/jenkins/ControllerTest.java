@@ -14,11 +14,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-import kmg.springboot.jenkins.TestController;
+import kmg.springboot.jenkins.BasicController;
 
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(TestController.class)
+@WebMvcTest(BasicController.class)
 public class ControllerTest {
 
 	@Autowired
@@ -26,12 +26,12 @@ public class ControllerTest {
 	
 	@Test
 	public void test() throws Exception{
-		final ResultActions actions = mvc.perform(get("/hello")
+		final ResultActions actions = mvc.perform(get("/")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andDo(print());
 		
 		actions
 		.andExpect(status().isOk())
-		.andExpect(content().string("Hello SpringBoot"));
+		.andExpect(content().string("This is Maven Jenkins Web Test"));
 	}
 }
